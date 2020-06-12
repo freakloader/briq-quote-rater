@@ -1,0 +1,17 @@
+{
+  "name": "quote-getter",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+	"client": "cd frontend && npm start",
+	"server": "cd backend && npm start",
+	"dev": "concurrently \"npm run server\" \"npm run client\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "concurrently": "^5.2.0"
+  }
+}
