@@ -8,7 +8,7 @@ require('dotenv').config({path: '../.env'});
 const express = require('express');
 const router = express.Router();
 const axios = require('axios');
-const analyze = require('../nlp_processing.js/index.js.js');
+const analyze = require('../nlp_processing.js');
 const API_link = 'https://programming-quotes-api.herokuapp.com/quotes';
 
 const MongoClient = require('mongodb').MongoClient;
