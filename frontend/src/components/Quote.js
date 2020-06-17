@@ -8,6 +8,7 @@ export default class Quote extends Component {
         return (
             <div>
                 {/*Shows quote */}
+                <hr />
                 <div id="quote">
                     "{en}"
                 </div>
@@ -15,6 +16,8 @@ export default class Quote extends Component {
                 <div id="author">
                     - {author}
                 </div>
+                {/* <br /> */}
+                <hr />
             </div>
         )
     }

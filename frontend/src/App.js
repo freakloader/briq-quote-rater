@@ -53,10 +53,12 @@ export default class App extends React.Component {
       .catch(err => console.log(err));
 
     // Extracting/Destructuring data from the state
-    const {currentQuote:{
+    const {
+      currentQuote:{
             categories,
             sentimentScore
-          },usedQuotes} = this.state;
+      },
+      usedQuotes} = this.state;
 
     // Preparing data to query the DB from the backend
     const filterData = {
@@ -98,7 +100,7 @@ export default class App extends React.Component {
   {
     this.firstFetchData()
   }
-  
+
   render(){
     var {currentQuote} = this.state;
       return (
