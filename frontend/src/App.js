@@ -23,7 +23,7 @@ export default class App extends React.Component {
   firstFetchData()
   {
     //Making a GET call to get random quote.
-    axios.get('/random')
+    axios.get('/api/random')
     .then(result => {
       console.log(result)
           this.setState({
@@ -68,7 +68,7 @@ export default class App extends React.Component {
     }
 
     // This variable holds the value of the api URL based according to the user's needs.
-    const API_URL = '/' + (rating < 4 ? 'opposite' : 'similar');
+    const API_URL = '/api/' + (rating < 4 ? 'opposite' : 'similar');
     
     // Setting the isLoading to true so that circular progress bar is shown to user while we fetch the result
     this.setState({ isLoading: true }, () => {
@@ -107,11 +107,11 @@ export default class App extends React.Component {
         <div className="App">
             <div id="heading">Quote Rater</div>
             {
-              // Display Loading Circular bar if isLoading is true
+              /* Display Loading Circular bar if isLoading is true */
               this.state.isLoading
                 ? <CircularProgress/>
 
-                // Display Quote and Rating component if isLoading is false,i.e., the user has not yet rated all quotes.
+                /* Display Quote and Rating component if isLoading is false,i.e., the user has not yet rated all quotes. */
                 : !this.state.allRated
                     ?   
                         <>
@@ -119,8 +119,8 @@ export default class App extends React.Component {
                           <Rating onRate={this.userChoiceData}/>
                         </>
                     :
-                      // Control reaches here when the user has rated all quotes from the API as the length of the result
-                      // array will be 0 as no result will be returned because all quote IDs are in usedQuotes array.
+                      /* Control reaches here when the user has rated all quotes from the API as the length of the result
+                         array will be 0 as no result will be returned because all quote IDs are in usedQuotes array. */
                       <div>
                         You have rated all quotes. You can reload the page if you want to rate again.
                       </div>
