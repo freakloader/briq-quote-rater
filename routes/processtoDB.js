@@ -2,13 +2,13 @@
 // to the nlp_processing file in 'nlp_processing' folder.
 // Then these results get stored in a MongoDB instance, which is 
 // used later to get similar quotes.
-// USED in an earlier iteration of the project.Discarded in the latest version.
+// USED IN AN EARLIER ITERATION OF THE PROJECT.DISCARDED IN THE LATEST VERSION.
 
 require('dotenv').config({path: '../.env'});
 const express = require('express');
 const router = express.Router();
 const axios = require('axios');
-const analyze = require('../nlp_processing.js');
+// const analyze = require('../nlp_processing.js');
 const API_link = 'https://programming-quotes-api.herokuapp.com/quotes';
 
 const MongoClient = require('mongodb').MongoClient;
