@@ -2,6 +2,7 @@
 // to the nlp_processing file in 'nlp_processing' folder.
 // Then these results get stored in a MongoDB instance, which is 
 // used later to get similar quotes.
+// USED in an earlier iteration of the project.Discarded in the latest version.
 
 require('dotenv').config({path: '../.env'});
 const express = require('express');

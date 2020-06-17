@@ -14,10 +14,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cors());
 
-// This endpoint was used to GET all quotes from the quotes API,
-// put them through the NLP API and get their entities and sentiment,
-// and then put this data to a MongoDB collection.
-app.use('/api/processtoDB', processtoDBRouter);
 
 // This endpoint was used to GET random quote from MongoDB collection
 app.use('/api/random', randomRouter);

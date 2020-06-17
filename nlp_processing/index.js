@@ -2,6 +2,45 @@
 
 require('dotenv').config({path: '../.env'});
 const language = require('@google-cloud/language');
+const API_link = 'https://programming-quotes-api.herokuapp.com/quotes';
+
+const MongoClient = require('mongodb').MongoClient;
+const ObjectId = require('mongodb').ObjectId;
+
+const client = new MongoClient(process.env.DB_CONNECT, { useNewUrlParser: true});
+const connection = client.connect();
+
+async function processtoDB()
+{
+  var result = await axios.get(API_link);
+  const collection = client.db("Briq").collection("quotes");
+
+  for(let i=0;i <= 500;i++)
+  {
+    var {_id,en,author} = result.data[i];
+    var {categories,sentimentScore} = await analyze(en);
+    categories.push(author)
+    var processed_item = {
+        _id:ObjectId(_id),
+        en,
+        author,
+        categories,
+        sentimentScore
+    }
+    
+    connection.then(async () => { 
+        await collection.insertOne(processed_item)
+        .then(result=>{
+          console.log("Document inserted")
+        })
+        .catch(result=>{
+          console.log("Document not inserted")
+        })
+    });
+    console.log("Passing:",i)
+  }
+  return 'The function has started putting data in the database';
+}
 
 async function analyze(text) {
     // Name of Project on Google Cloud Platform
@@ -35,4 +74,5 @@ async function analyze(text) {
       sentimentScore:sentimentresult[0].documentSentiment.score
     };
   }
-module.exports = analyze;
+
+processtoDB();
