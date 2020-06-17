@@ -3,7 +3,11 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon index.js"
+    "client": "cd frontend && npm start",
+	"server": "npm start",
+	"dev": "concurrently \"npm run server\" \"npm run client\"",
+	"start": "nodemon index.js",
+	"heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix frontend"
   },
   "dependencies": {
     "@google-cloud/language": "^4.0.1",
