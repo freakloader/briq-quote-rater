@@ -23,7 +23,7 @@ export default class App extends React.Component {
   firstFetchData()
   {
     //Making a GET call to get random quote.
-    axios.get('/api/random')
+    axios.get('/random')
     .then(result => {
       console.log(result)
           this.setState({
@@ -68,7 +68,7 @@ export default class App extends React.Component {
     }
 
     // This variable holds the value of the api URL based according to the user's needs.
-    const API_URL = '/api/' + (rating < 4 ? 'opposite' : 'similar');
+    const API_URL = '/' + (rating < 4 ? 'opposite' : 'similar');
     
     // Setting the isLoading to true so that circular progress bar is shown to user while we fetch the result
     this.setState({ isLoading: true }, () => {
