@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const PORT = process.env.PORT || 5000;
-const cors = require('cors');
+//const cors = require('cors');
 
 const homeDBRouter = require('./routes/home');
 const processtoDBRouter = require('./routes/processtoDB');
@@ -12,7 +12,7 @@ const oppRouter = require('./routes/opposite');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cors());
+//app.use(cors());
 
 
 // This endpoint was used to GET random quote from MongoDB collection
